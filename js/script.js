@@ -19,7 +19,81 @@ Buon lavoro e buon divertimento! :slightly_smiling_face:
 /* Pseudo coding 
 
 Palindroma
-Creare lo script per il form
-
+1. Creo la funzione reverseString (con il metodo del ciclo)
+2. Creo l'eventListner 
 
 */
+
+// Make reverse string
+
+function reverseString(str) {
+    
+        let newString = "";
+        for (let i = str.length -1; i>=0; i--){
+            newString += str[i];
+        }
+        return newString;
+}
+
+// const string = prompt('Enter a string:');
+
+// const result = reverseString(string);
+// console.log(result)
+
+// Make eventLIstner
+
+const eleForm = document.querySelector("#palindrome-form");
+const eleInputForm = document.querySelector("#input-word");
+const eleResults = document.querySelector("#results");
+
+eleForm.addEventListener('submit',
+
+    function(event) {
+        event.preventDefault();
+
+        const string = document.querySelector("#input-word").value;
+        const result = reverseString(string);
+        //console.log(result);
+
+        if (result === string) {
+            eleResults.innerHTML += `<p>'Yes, it is palidrome'</p>`;
+            //console.log('palindrome');
+        } 
+
+        else {
+            eleResults.innerHTML += `<p>'No, it isn't palidrome'</p>`;
+            //console.log('not palindrome');
+        }
+
+    }
+
+);
+
+// problema di accumulo dei p dentro il div
+
+// Make PC number
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
+const eleFormVS = document.querySelector("#even-form");
+const eleUserOption = document.querySelector("#userValue");
+const eleUserNumber = document.querySelector("#UserNumbers");
+
+eleFormVS.addEventListener('submit',
+
+    function(eventVS) {
+        eventVS.preventDefault();
+
+        const min = 1;
+        const max = 5;
+        const skynetNumber = getRandomIntInclusive(min, max);
+
+        console.log(skynetNumber);
+
+    }
+
+);
