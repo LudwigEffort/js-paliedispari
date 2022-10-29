@@ -95,9 +95,19 @@ function getRandomIntInclusive(min, max) {
 const min = 1;
 const max = 5;
 
+// this function determines if the sum is even or odd
+function whatValue(Sum) {
+    let sumValue = 'odd';
+    if (Sum % 2 == 0) {
+        sumValue = 'even';
+    }
+    return sumValue;
+}
+
 const eleFormEven = document.querySelector('#even-form');
 const eleInputValue = document.querySelector('#userValue');
 const eleInputNumbers = document.querySelector('#userNumbers');
+const eleReusltsOfVs = document.querySelector('#resultsOfBattle');
 
 eleFormEven.addEventListener('submit',
 
@@ -110,10 +120,22 @@ eleFormEven.addEventListener('submit',
         const skynetNumber = getRandomIntInclusive(min, max);
         const Sum = skynetNumber + inputValueNum;
         
-        console.log(inputValueEven);
+        //console.log(inputValueEven);
         console.log(Sum);
-        
-    }
 
+        let resultValue = whatValue(Sum);
+        console.log(resultValue);
+
+        if (inputValueEven === resultValue) {
+            //console.log('User wins');
+            eleReusltsOfVs.innerHTML += `<p>'User wins'</p>`;
+        }       
+        
+        else {
+            //console.log('Skyent wins');
+            eleReusltsOfVs.innerHTML += `<p>'Skynet wins'</p>`;
+        }
+
+    }
 
 );
