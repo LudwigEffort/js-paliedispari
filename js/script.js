@@ -3,13 +3,6 @@ Palindroma
 Chiedere all’utente di inserire una parola
 Creare una funzione per capire se la parola inserita è palindroma.
 
-Pari e Dispari
-L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
-Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
-Sommiamo i due numeri
-Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-Dichiariamo chi ha vinto.
-
 Consigli del giorno
 1. Scriviamo sempre in italiano i passaggi che vogliamo fare
 2. Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
@@ -71,29 +64,56 @@ eleForm.addEventListener('submit',
 
 // problema di accumulo dei p dentro il div
 
-// Make PC number
+/*
+Pari e Dispari
+L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
+Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+Sommiamo i due numeri
+Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+Dichiariamo chi ha vinto.
 
+Pseudo coding
+1. Creaiamo la funzione random number (DONE)
+2. Creiamo la funzione per il bottone (almost DONE)
+    - L'utente seleziona i valori, quando preme il pulsante stama il risultato
+
+    Dentro la funzione bottone
+    - Selezionare i valori
+    - Sommiamo i valori
+    - Tramite una funzione determiniamo se la somma è pari o dispari
+    - Dichiariamo chi ha vinto con un if else
+
+*/
+
+// Make PC number
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
 }
 
-const eleFormVS = document.querySelector("#even-form");
-const eleUserOption = document.querySelector("#userValue");
-const eleUserNumber = document.querySelector("#UserNumbers");
+const min = 1;
+const max = 5;
 
-eleFormVS.addEventListener('submit',
+const eleFormEven = document.querySelector('#even-form');
+const eleInputValue = document.querySelector('#userValue');
+const eleInputNumbers = document.querySelector('#userNumbers');
 
-    function(eventVS) {
-        eventVS.preventDefault();
+eleFormEven.addEventListener('submit',
 
-        const min = 1;
-        const max = 5;
+    function (event) {
+        event.preventDefault();
+        
+        const inputValueEven = document.querySelector('#userValue').value;
+        const inputValueNum = parseInt(document.querySelector('#userNumbers').value);
+
         const skynetNumber = getRandomIntInclusive(min, max);
-
-        console.log(skynetNumber);
-
+        const Sum = skynetNumber + inputValueNum;
+        
+        console.log(inputValueEven);
+        console.log(Sum);
+        
     }
+
 
 );
